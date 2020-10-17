@@ -2,6 +2,25 @@
 
 noteworthy-botkit is a library for quickly building Matrix bots. It uses [matrix-nio](https://github.com/poljar/matrix-nio) as its Matrix client library.
 
+## Install
+
+### Requirements
+noteworthy-botkit makes use of matrix's end-to-end encryption, and thus requires [libolm](https://gitlab.matrix.org/matrix-org/olm) and [python-libolm](https://gitlab.matrix.org/matrix-org/olm/-/tree/master/python).
+
+TODO: list some of the available packages on diff OSes/Distros
+
+### pypi
+Install the latest pypi package:
+```bash
+pip install noteworthy-botkit
+```
+
+### local
+
+```bash
+python setup.py install
+```
+
 ## Examples
 
 ### XKCD Bot

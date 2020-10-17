@@ -8,7 +8,7 @@ setup(name='noteworthy-botkit',
       packages=find_namespace_packages(include=['noteworthy.*']),
       zip_safe=False,
       install_requires=[
-        'matrix-nio==0.10.0',
+        'matrix-nio[e2e]==0.15.1',
         'requests==2.23.0',
         'Pillow==7.1.2'
       ]
