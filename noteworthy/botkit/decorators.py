@@ -34,7 +34,7 @@ def botkit_startup_method(func):
     return wrapped
 
 
-def botkit_controller(bot_name, channel_greeting=None):
+def botkit_controller(bot_name, channel_greeting=None, bot_prefix=None):
     '''Marks a class to generate a matrix bot.
        Marked class will get a create_matrix_bot method that will create a Bot instance.
     '''
@@ -43,6 +43,7 @@ def botkit_controller(bot_name, channel_greeting=None):
         cls.botkit_controller = True
         cls.BOTKIT_BOT_NAME = bot_name
         cls.CHANNEL_GREETING = channel_greeting
+        cls.BOTKIT_BOT_PREFIX = bot_prefix
 
         @staticmethod
         def create_matrix_bot(creds):

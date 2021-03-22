@@ -25,8 +25,12 @@ class Bot():
             self.CACHE = controller.CACHE
         else:
             self.CACHE = NoCache()
+        
 
     def _setup_handlers(self, controller):
+        self.prefix = controller.BOTKIT_BOT_PREFIX
+        if not self.prefix:
+          self.prefix = "!" + self.name
         self.commands = {}
         self.msg_handler = None
         self.startup_method = None
@@ -34,7 +38,7 @@ class Bot():
         for member in members:
             if hasattr(member[1], 'botkit_method'):
                 # add member[1]
-                command_str = f'!{self.name} {member[0]}'
+                command_str = f'{self.prefix} {member[0]}'
                 self.commands[command_str] = member[1]
             elif hasattr(member[1], 'botkit_msg_handler'):
                 if self.msg_handler:
@@ -119,6 +123,7 @@ class Bot():
         return msg
 
     async def loginandsync(self):
+        print("loginandsync")
         await self.client.login(self.password)
         if self.startup_method:
             await self.startup_method(self.client)
