@@ -123,7 +123,6 @@ class Bot():
         return msg
 
     async def loginandsync(self):
-        print("loginandsync")
         await self.client.login(self.password)
         if self.startup_method:
             await self.startup_method(self.client)
