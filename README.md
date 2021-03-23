@@ -65,7 +65,7 @@ import noteworthy.botkit as botkit
 import noteworthy.botkit.response as response
 import noteworthy.botkit.cache as cache
 
-@botkit.botkit_controller(bot_name='dicebot')
+@botkit.botkit_controller(bot_name='dicebot', bot_prefix='!dice')
 class DiceBotController():
 
     AUTH = botkit.auth.PublicBot
@@ -93,13 +93,13 @@ bot.run()
 
 Accepts all invites and responds to all users. Produces dice rolls in `<N>d<S>` format with:
 
-    !dicebot roll <number_of_dice>d<number_of_sides>
+    !dice roll <number_of_dice>d<number_of_sides>
 
 ## Decorators
 
 ### botkit_controller
 
-Requires specifying a `bot_name` - bots are invoked by writing `!<bot_name> <method>` in chat. Marks a python class as a bot controller. Adds `create_matrix_bot` class method that takes in `creds` and creates a bot. The bot's `run` starts the bot and blocks while the bot is running.
+Requires specifying a `bot_name` - bots are invoked by writing `<bot_prefix> <method>` in chat. The `bot_prefix` is `!<bot_name>` by default, but can be specified otherwise. Marks a python class as a bot controller. Adds `create_matrix_bot` class method that takes in `creds` and creates a bot. The bot's `run` starts the bot and blocks while the bot is running.
 
 #### creds
 
@@ -107,7 +107,7 @@ Requires specifying a `bot_name` - bots are invoked by writing `!<bot_name> <met
 
 ### botkit_method
 
-Marks a function as a bot method. Can be invoked with `!<bot_name> <function_name>`
+Marks a function as a bot method. Can be invoked with `<bot_prefix> <function_name>`
 
 #### cache_result
 
