@@ -13,7 +13,9 @@ class EchoBotController():
     @botkit.botkit_method
     async def echo(self, dstring, **kwargs):
         message = str(dstring)
-        return response.Notice(message)
+        for kw in kwargs:
+          message = message + str(kw)
+        return response.Notice(message[:-7])
 
 creds = {
     'homeserver': 'https://matrix.MYSERVER.com',
