@@ -7,9 +7,4 @@ setup(name='noteworthy-botkit',
       license='AGPLv3',
       packages=find_namespace_packages(include=['noteworthy.*']),
       zip_safe=False,
-      install_requires=[
-        'matrix-nio==0.10.0',
-        'requests==2.23.0',
-        'Pillow==7.1.2'
-      ]
      )
